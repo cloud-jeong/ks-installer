@@ -30,7 +30,7 @@ base_library_repo: >-
   {{ base_repo }}{{ namespace_override | default('library') }}/
   {%- else -%}
 
-  {%- endif %}  
+  {%- endif %}
 
 ks_version: >-
   {%- if dev_tag is defined and dev_tag != "" -%}

@@ -1,7 +1,7 @@
 # REPO?=kubespheredev/ks-installer
 # TAG:=$(shell git rev-parse --abbrev-ref HEAD | sed -e 's/\//-/g')-dev
 
-REPO?=jjssig77/ks-installer
+REPO?=cloud2000/ksinst
 TAG:=v3.2.1-smap-20230525
 
 build:
