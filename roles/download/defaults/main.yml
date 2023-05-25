@@ -12,14 +12,25 @@ base_repo: >-
 
   {%- endif %}
 
+# base_library_repo: >-
+#   {% if (local_registry is defined and local_registry == "registry.cn-beijing.aliyuncs.com") or (zone is defined and zone == "cn") -%}
+#   {{ base_repo }}{{ namespace_override | default('kubesphereio') }}/
+#   {%- elif local_registry is defined and local_registry != "" -%}
+#   {{ base_repo }}library/
+#   {%- else -%}
+
+#   {%- endif %}
+
+# To use namespace_override option to images in library project
+# Modified by cloud.jung@gmail.com. 2023.05.23
 base_library_repo: >-
   {% if (local_registry is defined and local_registry == "registry.cn-beijing.aliyuncs.com") or (zone is defined and zone == "cn") -%}
   {{ base_repo }}{{ namespace_override | default('kubesphereio') }}/
   {%- elif local_registry is defined and local_registry != "" -%}
-  {{ base_repo }}library/
+  {{ base_repo }}{{ namespace_override | default('library') }}/
   {%- else -%}
 
-  {%- endif %}
+  {%- endif %}  
 
 ks_version: >-
   {%- if dev_tag is defined and dev_tag != "" -%}
